@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Grid</title>
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      .grid-container {
+        display: grid;
+        grid-auto-rows: 100px; /*any new items added will have this value*/
+        grid-auto-columns: 100px; /* this is better than the grid-template... so we can completely remove it if we have this attribue*/
+        grid-template-columns: 100px 100px 100px; /*columns*/
+        grid-template-rows: 100px 100px 100px; /*rows*/
+        gap: 2px;
+        justify-items: center; /*value start,center,end;(aligns the items within the cells;)*/
+        align-items: center; /*values first baseline,center,last baseline;(align the items within the cell;)*/
+        justify-content: center; /*align contents within the grid-container*/
+        align-content: center; /*aligns the contents within the grid-container*/
+      }
+      /*justify= Hroizontal && align=vertical*/
+      .items {
+        height: 50px;
+        width: 50px;
+        /*text-align:center; vertical alignment of the text*/
+        border-radius: 3px;
+        display: flex;
+        margin: 0px;
+        align-items: center; /*Vertically aligns content &&& same in grid too*/
+        justify-content: center; /*Horizontallly to align within! &&& same in grid too*/
+        background-color: blue;
+        color: white;
+      }
+      /*importnat: em is best for padding/margins that should scale with the text size depends on the parent or element itself like <div> which has generally font size of 20px.
+        &&&
+         Rem Consistent sizing across the whole page regardless of nesting depends on usually root tag <html>*/
+
+      .grid-container1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr; /*note: this property dosen't depend on the webpage height but the container height; while the columns property depends on the webpage size;*/
+        gap: 1px;
+      }
+      .items1 {
+        background-color: blue;
+        color: white;
+        text-align: center;
+        margin: 0;
+        backdrop-filter: blur(0.5px);
+      }
+
+      .grid-container2 {
+        grid-template-areas:
+        "box-1 box-2 box-2 box-3"
+        "box-1 box-4 box-5 box-5";
+        /* "";every string is one row && space inside this separate the columns */
+        display:grid;
+        grid-auto-rows:100px;
+        grid-auto-columns:100px;
+        gap:2px;/*column-gap && row-gap*/
+      }
+      .items2 {
+        margin:0px;
+        background-color:blue;
+        color:white;
+        display:grid;
+        justify-items:center;
+        align-items:center;
+        font-size:15px;
+        font-weight:bold;
+        border-radius:5px;
+      }
+    </style>
+  </head>
+  <body style="padding-bottom:1000px;">
+    <div style="display: grid; grid-template-columns: 100px 100px">
+      <div class="1" style="background-color: lightpink">div 1</div>
+      <div class="2" style="background-color: lightblue">div 2</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 3fr 1fr; gap: 5px">
+      <div class="1" style="background-color: lightpink">1fr</div>
+      <div class="2" style="background-color: lightblue">
+        3fr( fr= fraction )
+      </div>
+      <div class="1" style="background-color: lightpink">1fr</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 100px 1fr">
+      <div class="1" style="background-color: lightpink">100px</div>
+      <div class="2" style="background-color: lightblue">1fr</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 2fr 3fr 4fr">
+      <div class="1" style="background-color: lightpink">1fr</div>
+      <div class="2" style="background-color: lightblue">2fr</div>
+      <div class="1" style="background-color: lightpink">3f</div>
+      <div class="2" style="background-color: lightblue">4fr</div>
+    </div>
+
+    <div class="grid-container">
+      <div class="items">Item 1</div>
+      <div class="items">Item 2</div>
+      <div class="items">Item 3</div>
+      <div class="items">Item 4</div>
+      <div class="items">Item 5</div>
+      <div class="items">Item 6</div>
+      <div class="items">Item 7</div>
+      <div class="items">Item 8</div>
+      <div class="items">Item 9</div>
+      <div class="items">New Item</div>
+      <!-- This is a new item which is not mentioned in grid-template-columns but still gets styled accordingly bec of the property grid-auto-columns/rows -->
+    </div>
+
+    <div class="grid-container1">
+      <div class="items1">Item 1</div>
+      <div class="items1">Item 2</div>
+      <div class="items1">Item 3</div>
+      <div class="items1">Item 4</div>
+      <div class="items1">Item 5</div>
+      <div class="items1">Item 6</div>
+      <div class="items1">Item 7</div>
+      <div class="items1">Item 8</div>
+      <div class="items1">Item 9</div>
+    </div>
+
+    <div class="grid-container2">
+      <div class="items2" style="grid-area: box-1">1</div>
+      <div class="items2" style="grid-area: box-2">2</div>
+      <div class="items2" style="grid-area: box-3">3</div>
+      <div class="items2" style="grid-area: box-4">4</div>
+      <div class="items2" style="grid-area: box-5">5</div>
+    </div>
+  </body>
+</html>

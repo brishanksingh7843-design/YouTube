@@ -1,0 +1,463 @@
+ /*<input type="text-box, checkbox"*/
+      /*block element take entire line horizontally and inline-block-element take only space they want and the inline elements they take the line of text like a specific word like strong*/
+      /* object-fit:cover, contain & object-position: top,bottom,left,right*/
+      body {
+        font-family:
+          Roboto, Arial; /*this comma is called font stack it lets us make a seconds selection if the first one fales;*/
+        background-color: rgba(0, 0, 0, 0.92);
+        color: white;
+        margin: 0;
+        padding-top: 60px;
+        padding-left: 65px;
+        padding-right:10px;
+        overflow:hidden;
+
+      }
+      /* Create an internal blue border */
+      /*box-shadow: horizontal | vertical | blur | spread | color */
+      input {
+        flex: 1;
+        background-color: transparent;
+        font-size: 12px;
+        padding-left: 16px;
+        padding-right: 4px;
+        margin: 0px;
+        height: 34px;
+        display: inline-block;
+        border: 1px solid #ffffff4f;
+        border-radius: 20px 0 0 20px; /*importnat*/
+        cursor: text;
+        align-items: center; /*importnat*/
+        line-height: 22px;
+        width: 0px;
+        color: white;
+        outline: none;
+      }
+      input:focus {
+        box-shadow: inset 0 0 2px 1px rgb(60, 60, 255);
+      }
+      .preview {
+        padding: 10px;
+        display: inline-block;
+        border-radius: 15px;
+        transition: background-color 0.3s;
+      }
+      .preview:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .thumbnail-d {
+        position: relative; /*for the duration value which is position absolute so it could be arranged according to thumbnail not web page*/
+        margin-bottom: 10px;
+      }
+      .thumbnail {
+        border-radius: 15px;
+        width: 100%;
+      }
+      .details {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 10px;
+      }
+      /*.account-photo {
+        margin-right: 8px;
+        display: inline-block;
+        width: 36px;
+        vertical-align: top;
+      }*/
+      .account-p {
+        border-radius: 18px;
+        width: 100%;
+      } /*
+      .texts {
+        width: 277px;
+        display: inline-block;
+      } */
+      .title {
+        font-weight: 500;
+        font-size: 1.6rem;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+      .author {
+        font-size: 1.3rem;
+        color: rgba(241, 241, 241, 0.767);
+        margin: 0;
+        margin-bottom: 8px;
+        transition: color 0.1s;
+      }
+      .video-statics {
+        font-size: 1.3rem;
+        color: rgba(241, 241, 241, 0.767);
+        margin: 0px;
+      }
+      /* *top-left, top-right, bottom-right, bottom-left
+      border-radius: 0 0 0 10px ;
+      
+      *border-left, border-right border-top border-bottom */
+      .author:hover {
+        color: rgb(255, 255, 255);
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 10px;
+        height:100vh;
+        overflow-y:auto;
+      }
+      .grid-container::-webkit-scrollbar{
+        width:10px;
+      }
+      .grid-container::-webkit-scrollbar-track{
+        background:transparent;
+      }
+      .grid-container::-webkit-scrollbar-thumb{
+        background:rgb(193, 193, 193);
+        border-radius:5px;
+      }
+      .grid-container::-webkit-scrollbar-thumb:hover{
+        background:rgb(255, 255, 255);;
+      }
+      @media (max-width:950px){
+        .grid-container{
+          grid-template-columns:1fr 1fr;
+        }
+      }
+      @media(min-width:1990px){
+        .grid-container{
+          grid-template-columns:1fr 1fr 1fr 1fr;
+        }
+      }
+      .header {
+        background-color: rgba(21, 21, 21, 0.9);
+        backdrop-filter: blur(15px);
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        height: 56px;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 16px;
+        justify-content: space-between;
+        z-index:100;
+      }
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 56px;
+        bottom: 0;
+        background-color: rgb(23, 23, 23);
+        width: 64px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 5px;
+      }
+      @media (max-width:800px){
+        .sidebar{
+          display:none;
+        }
+        body{
+          padding-left:0;
+        }
+      }
+      .middle {
+        border-radius: 200px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 732px;
+        min-width: 95px;
+        flex: 1;
+        display: flex;
+        align-content: center;
+      }
+      .right {
+        width: 213px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .notification {
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 25px;
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 25px;
+        transition: background-color 0.1s;
+      }
+      .notification:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+      }
+      .search {
+        border-radius: 0 20px 20px 0; /*important*/
+        border: 1px solid black;
+        margin-right: 15px;
+        width: 25px;
+        height: 25px;
+        padding: 5.5px;
+        object-fit: cover;
+        border: 1px solid #ffffff4f;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-left: none;
+        background-color:rgba(255, 255, 255, 0.11);
+        transition:background-color 0.1s;
+      }
+      .search:active {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+      .mic {
+        padding: 3px;
+        border-radius: 23px;
+        width: 40px;
+        transition: background-color 0.2s;
+      }
+      .mic:hover {
+        background-color: rgba(226, 226, 226, 0.4);
+      }
+      .left {
+        margin-right: 10px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .ytin {
+        margin-left: 15px;
+        width: 110px;
+        object-fit: contain;
+      }
+      .hamb {
+        padding: 10px;
+        margin-top: 5px;
+        width: 22px;
+        object-fit: contain;
+        border-radius: 20px;
+        transition: background-color 0.2s;
+      }
+      .hamb:hover {
+        background-color: rgba(255, 255, 255, 0.22);
+      }
+      .create {
+        border: none;
+        width: 97px;
+        height: 36px;
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 17px;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.1s;
+      }
+      .create:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+      span {
+        font-family: sans-serif;
+        font-size: 35px;
+        padding-right: 7px;
+        font-weight: 500;
+      }
+      .acc {
+        width: 38px;
+        object-fit: contain;
+      }
+      .side {
+        width: 64px;
+        height: 44px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        background-color: rgb(23, 23, 23);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+      .side:hover {
+        background-color: rgba(255, 255, 255, 0.11);
+      }
+      .sid {
+        height: 44px;
+        width: 64px;
+        object-fit: cover;
+      }
+      .time {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 11.5px;
+        position: absolute;
+        right: 10px;
+        bottom: 8px;
+      }
+      .voice{
+        position:relative;
+      }
+      .voice-tip{
+        position:absolute;
+        background-color:rgba(110, 110, 110, 0.95);
+        padding:10px;
+        left:-45px;
+        right:-45px;
+        bottom:-50px;
+        border-radius:5px;
+        opacity:0;
+        transition:opacity 0.2s ease-in;
+        pointer-events:none;
+      }
+      /* out= slow at last, 
+      in= slow at beginning,
+      liner=same speed throughout, 
+      ease=slow at starting and end speed in middle*/
+      .voice:hover .voice-tip{
+        opacity:1;
+      }
+      /*if you don't want to always change class name for every element unique you can just define the class more precisely so as to keep two similar class names but still no mixup with css properties eg:
+       .voice .voice-tip{}
+       this will focus only on the voice-tip which is in the .voice*/
+       .notif{
+        position:relative;
+       }
+       .notif-tip{
+        position:absolute;
+        background-color:rgba(110, 110, 110, 0.95);border-radius:5px;
+        opacity:0;
+        transition:opacity 0.2s ease-in;
+        padding:10px;
+        left:-15px;
+        bottom:-45px;
+        pointer-events:none;/*importnat property for tool tip... tip will not appear if you hover over it bec of this */
+       }
+       .notif:hover .notif-tip{
+        opacity:1;
+       }
+       .extended{
+        position:fixed;
+        width:240px;
+        height:93vh;
+        left:5px;
+        top:60px;
+        display:none;
+        flex-direction:column;
+        overflow-y:auto;
+       }
+       .extended::-webkit-scrollbar{
+        width:6px;
+       }
+       .extended::-webkit-scrollbar-track{
+        background:transparent;
+       }
+       .extended::-webkit-scrollbar-thumb{
+        background:rgb(127, 127, 127);
+        border-radius:10px;
+       }
+       .extended::-webkit-scrollbar-thumb:hover{
+        background-color:rgba(203, 203, 203, 0.834);
+       }
+       /* horizontal | vertical | blur | spread | color 
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3); */
+       .extend1{
+        height:80px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .side1, .side2, .side3, .side4, .side5, .side6{
+        height:40px;
+        display:flex;
+        align-items:center;
+        font-size:14px;
+        border-radius:10px;
+        transition:background-color 80ms;
+       }
+       .side1:hover, .side2:hover, .side3:hover, .side4:hover, .side5:hover, .side6:hover{
+        background-color:rgba(255, 255, 255, 0.13)
+       }
+       .sid1{
+        height:35px;
+       }
+       .extend2{
+        padding:10px;
+        height:360px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .extend3{
+        padding:12px;
+        height:320px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .extend4{
+        padding:12px;
+        height:192px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .extend5{
+        padding:12px;
+        height:112px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .extend6{
+        height:40px;
+        padding:12px;
+        border-bottom:1px solid rgb(96, 96, 96);
+       }
+       .extend7{
+        height:185px;
+       }
+
+       @media(min-width:1300px){
+        body{
+          padding-left:245px;
+        }
+        .extended{
+          display:flex;
+        }
+        .sidebar{
+          display:none;
+        }
+       }
+       .arrow{
+        font-size:20px;
+        transform:rotate(90deg);
+       }
+       .abc{
+        border-radius:20px;
+        height:30px;
+       }
+       .last1{
+        padding-top:16px;
+        padding-left:24px;
+        width:200px;
+        word-spacing:7px;
+        line-height:18px;
+        font-size:13px;
+        color:rgba(255, 255, 255, 0.7)
+
+
+       }
+       .last2{
+        padding-top:12px;
+        padding-left:24px;
+        word-spacing:7px;
+        line-height:18px;
+        font-size:13px;
+        color:rgba(255, 255, 255, 0.7)
+
+       }
+       .last3{
+        padding:16px;
+        padding-left:24px;
+        word-spacing:5px;
+        color:rgba(255, 255, 255, 0.32);
+        font-size:13px;
+       }
